@@ -1,0 +1,5 @@
+bug at showPlayerReservations method in Reservations View:
+    it only shows the first reservation
+    it doesn't show the next reservations you make
+
+adding, updating, deleting fields as field owner missing.
