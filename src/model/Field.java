@@ -1,5 +1,8 @@
 package model;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 public record Field(
         int id,
         String name,
@@ -7,5 +10,5 @@ public record Field(
         String description,
         double price,
         int playerCapacity,
-        boolean isReserved) {
+        ArrayList<LocalDateTime> reservedTimes) {
 }

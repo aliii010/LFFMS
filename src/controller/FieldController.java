@@ -16,15 +16,15 @@ public class FieldController {
         return fields;
     }
 
-    public static ArrayList<Field> getAvailableFields() {
-        ArrayList<Field> fields = new ArrayList<>();
-        for (Field field : allFields) {
-            if (!field.isReserved()) {
-                fields.add(field);
-            }
-        }
-        return fields;
-    }
+    // public static ArrayList<Field> getAvailableFields() {
+    // ArrayList<Field> fields = new ArrayList<>();
+    // for (Field field : allFields) {
+    // if (!field.isReserved()) {
+    // fields.add(field);
+    // }
+    // }
+    // return fields;
+    // }
 
     public static Field getFieldById(int id) {
         for (Field field : allFields) {

@@ -3,3 +3,6 @@ bug at showPlayerReservations method in Reservations View:
     it doesn't show the next reservations you make
 
 adding, updating, deleting fields as field owner missing.
+
+
+stopped at startReservation() method at ReservationView. 17/10/2024

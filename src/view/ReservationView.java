@@ -3,19 +3,20 @@ package view;
 import java.time.LocalDate;
 import java.util.Scanner;
 import controller.*;
-import model.Reservation;
+import model.*;
 
 public class ReservationView {
-    static void startReservation() {
+    public static void startReservation(Field field) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Please enter the id of the field you want to reserve: ");
-        int id = input.nextInt();
+
         System.out.println("Please enter the date of reservation (yyyy-mm-dd): ");
         String dateInString = input.next();
         LocalDate date = LocalDate.parse(dateInString);
+
         System.out.println("Please enter the duration of reservation (in hours): ");
         int duration = input.nextInt();
-        ReservationController.addReservation(FieldController.getFieldById(id), AuthController.getPlayer(), date,
+
+        ReservationController.addReservation(FieldController.getFieldById(field.id()), AuthController.getPlayer(), date,
                 duration);
         System.out.println("Reservation added successfully!");
     }
@@ -35,7 +36,7 @@ public class ReservationView {
         Scanner input = new Scanner(System.in);
         int userAnswer = input.nextInt();
         if (userAnswer == 1) {
-            startReservation();
+            // startReservation();
         } else if (userAnswer == 2) {
             showPlayerReservations();
         } else {

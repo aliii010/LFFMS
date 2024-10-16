@@ -7,10 +7,11 @@ import data.Reservations;
 
 public class ReservationController {
     public static void addReservation(Field field, Player player, LocalDate date, int duration) {
-        if (field.isReserved()) {
-            System.err.println("Field is already reserved. Please choose another field.");
-            return;
-        }
+        // if (field.isReserved()) {
+        // System.err.println("Field is already reserved. Please choose another
+        // field.");
+        // return;
+        // }
 
         if (duration > 2) {
             System.err.println("Sorry, you can't reserver a field for more than 2 hours.");
