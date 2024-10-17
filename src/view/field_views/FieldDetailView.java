@@ -23,10 +23,10 @@ public class FieldDetailView {
         if (!field.reservedTimes().isEmpty()) {
             System.out.println("Reserved times: ");
             for (LocalDateTime time : field.reservedTimes()) {
-                System.out.println(time);
+                System.out.println(time + "\n");
             }
         } else {
-            System.out.println(field.name() + " is available at all times.");
+            System.out.println(field.name() + " is available at all times. \n");
         }
     }
 

@@ -5,4 +5,6 @@ bug at showPlayerReservations method in Reservations View:
 adding, updating, deleting fields as field owner missing.
 
 
-stopped at startReservation() method at ReservationView. 17/10/2024
+bugs:
+    when reserving a field, if you enter 2-10-2024 it will show you reserved times at other dates as well.
+    when the time you are trying to reserve is already reserved, it still says reservation added successfully.

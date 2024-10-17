@@ -33,7 +33,7 @@ public class ReservationView {
                 reservationDate,
                 hour,
                 duration);
-        System.out.println("Reservation added successfully!");
+        System.out.println("Reservation added successfully! \n");
         PlayerView.start();
         input.close();
     }
