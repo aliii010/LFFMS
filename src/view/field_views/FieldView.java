@@ -3,31 +3,25 @@ package view.field_views;
 import java.util.Scanner;
 import model.Field;
 import controller.FieldController;
+import view.*;
 
 public class FieldView {
-    static Scanner input = new Scanner(System.in);
 
-    static void showFieldNames() {
+    public static void showFieldNames() {
+        Scanner input = new Scanner(System.in);
         System.out.println("======All fields in our system=====\n");
-        System.out.println("Please select the field you want to reserve: ");
 
         for (Field field : FieldController.getAllFields()) {
             System.out.println("[" + field.id() + "]" + field.name() + "\n");
         }
+        System.out.println("[0] Back");
 
         int selectedField = input.nextInt();
-        FieldDetailView.start(selectedField);
-    }
-
-    public static void start() {
-        System.out.println("Welcome to field view");
-        System.out.println("Please select\n [1] Show all fields [2] Exit");
-        int userAnswer = input.nextInt();
-        if (userAnswer == 1) {
-            showFieldNames();
+        if (selectedField == 0) {
+            PlayerView.start();
         } else {
-            System.exit(1);
+            FieldDetailView.start(selectedField);
         }
-
+        input.close();
     }
 }

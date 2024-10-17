@@ -1,46 +1,40 @@
 package view;
 
-import java.time.LocalDate;
+import java.time.*;
 import java.util.Scanner;
 import controller.*;
 import model.*;
+import view.field_views.FieldDetailView;
 
 public class ReservationView {
     public static void startReservation(Field field) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Please enter the date of reservation (yyyy-mm-dd): ");
-        String dateInString = input.next();
-        LocalDate date = LocalDate.parse(dateInString);
+        System.out.println("Please enter the day of reservation. The reservation date will be in "
+                + "(" + LocalDate.now().getYear() + "-" + LocalDate.now().getMonthValue() + "-" + "Your day"
+                + ")");
+        int day = input.nextInt();
 
-        System.out.println("Please enter the duration of reservation (in hours): ");
+        LocalDate reservationDate = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonthValue(), day);
+
+        FieldDetailView.showReservedTimes();
+        System.out.println("\n Please be sure to enter an hour that is not reserved.\n");
+
+        System.out.println("Enter the hour of reservation in " + LocalDate.now().getYear() + "-"
+                + LocalDate.now().getMonthValue() + "-" + day + "(in PM): ");
+        int hour = input.nextInt();
+
+        System.out.println("Please enter the duration of reservation (1/2 hours): ");
         int duration = input.nextInt();
 
-        ReservationController.addReservation(FieldController.getFieldById(field.id()), AuthController.getPlayer(), date,
+        ReservationController.addReservation(
+                FieldController.getFieldById(field.id()),
+                AuthController.getPlayer(),
+                reservationDate,
+                hour,
                 duration);
         System.out.println("Reservation added successfully!");
-    }
-
-    static void showPlayerReservations() {
-        if (ReservationController.getReservationsByPlayer(AuthController.getPlayer()).isEmpty()) {
-            System.out.println("You have no reservations");
-            return;
-        }
-        for (Reservation reservation : ReservationController.getReservationsByPlayer(AuthController.getPlayer())) {
-            System.out.println(reservation);
-        }
-    }
-
-    public static void start() {
-        System.out.println("Please select\n [1] Start reservation [2] Show my reservations [3] Exit");
-        Scanner input = new Scanner(System.in);
-        int userAnswer = input.nextInt();
-        if (userAnswer == 1) {
-            // startReservation();
-        } else if (userAnswer == 2) {
-            showPlayerReservations();
-        } else {
-            System.exit(1);
-        }
+        PlayerView.start();
+        input.close();
     }
 }
