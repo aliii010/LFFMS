@@ -19,25 +19,12 @@ public class FieldDetailView {
         }
     }
 
-    public static void showReservedTimes() {
-        if (!field.reservedTimes().isEmpty()) {
-            System.out.println("Reserved times: ");
-            for (LocalDateTime time : field.reservedTimes()) {
-                System.out.println(time + "\n");
-            }
-        } else {
-            System.out.println(field.name() + " is available at all times. \n");
-        }
-    }
-
     static void showFieldDetails() {
         System.out.println("Field name: " + field.name());
         System.out.println("Location: " + field.location());
         System.out.println("Description: " + field.description());
         System.out.println("Price: " + field.price());
         System.out.println("Player capacity: " + field.playerCapacity());
-
-        showReservedTimes();
     }
 
     public static void start(int id) {
