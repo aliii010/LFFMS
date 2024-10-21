@@ -7,8 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class FieldController {
-    // dummy data
-    static Field[] allFields = Fields.allFields;
+    static ArrayList<Field> allFields = Fields.allFields;
 
     public static ArrayList<Field> getAllFields() {
         ArrayList<Field> fields = new ArrayList<>();
@@ -36,6 +35,7 @@ public class FieldController {
             return;
         }
 
+        Fields.loadFields();
         System.out.println("Field added successfully");
     }
 

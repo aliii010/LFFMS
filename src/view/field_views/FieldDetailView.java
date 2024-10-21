@@ -3,12 +3,11 @@ package view.field_views;
 import data.Fields;
 import model.Field;
 import java.util.*;
-import java.time.LocalDateTime;
 import view.ReservationView;
 
 public class FieldDetailView {
     static Scanner input = new Scanner(System.in);
-    static Field[] allFields = Fields.allFields;
+    static ArrayList<Field> allFields = Fields.allFields;
     static Field field;
 
     static void getField(int id) {

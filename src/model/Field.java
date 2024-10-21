@@ -11,4 +11,13 @@ public record Field(
         double price,
         int playerCapacity,
         ArrayList<LocalDateTime> reservedTimes) {
+    @Override
+    public String toString() {
+        return id + "," +
+                name + "," +
+                location + "," +
+                description + "," +
+                price + "," +
+                playerCapacity + ",";
+    }
 }

@@ -1,19 +1,34 @@
 package data;
 
 import model.Field;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Fields {
-    // dummy data
-    public static Field[] allFields = {
-            new Field(1, "Green Park", "New York", "A well-maintained soccer field", 200.0, 22, new ArrayList<>()),
-            new Field(2, "Sunny Meadows", "Los Angeles", "A beautiful field with a view of the mountains", 150.0, 20,
-                    new ArrayList<>()),
-            new Field(3, "Ocean Breeze", "Miami", "A field near the ocean with cool breezes", 180.0, 18,
-                    new ArrayList<>()),
-            new Field(4, "Central Arena", "Chicago", "A large multipurpose field in the city center", 250.0, 30,
-                    new ArrayList<>()),
-            new Field(5, "Sunset Fields", "San Francisco", "A scenic field overlooking the bay", 220.0, 25,
-                    new ArrayList<>())
-    };
+    public static ArrayList<Field> allFields = new ArrayList<>();
+    public static int greatestId = 0;
+
+    public static void loadFields() {
+        try (
+                BufferedReader br = new BufferedReader(new FileReader("src/data/fields.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                int id = Integer.parseInt(values[0]);
+                String name = values[1];
+                String location = values[2];
+                String description = values[3];
+                double price = Double.parseDouble(values[4]);
+                int playerCapacity = Integer.parseInt(values[5]);
+
+                allFields.add(new Field(id, name, location, description, price, playerCapacity, new ArrayList<>()));
+                greatestId = id;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
