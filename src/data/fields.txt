@@ -1,0 +1,1 @@
+Field[id=1, name=af, location=hd, description=h, price=10000.0, playerCapacity=7, reservedTimes=[]]

@@ -2,6 +2,8 @@ package controller;
 
 import model.Field;
 import data.Fields;
+
+import java.io.*;
 import java.util.ArrayList;
 
 public class FieldController {
@@ -26,8 +28,15 @@ public class FieldController {
         return null;
     }
 
-    public void addField(Field field) {
+    public static void addField(Field field) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("src/data/fields.txt", true))) {
+            writer.println(field);
+        } catch (IOException e) {
+            System.err.println("Error adding field to file: " + e.getMessage());
+            return;
+        }
 
+        System.out.println("Field added successfully");
     }
 
     public void updateField(Field field) {
