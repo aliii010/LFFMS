@@ -25,7 +25,7 @@ public class SignUpView {
 
         AuthController.addPlayer(userName, phoneNumber, password);
 
-        System.out.println("You have successfully registered! as " + userName + " " + phoneNumber);
-        PlayerView.start();
+        input.close();
     }
+
 }

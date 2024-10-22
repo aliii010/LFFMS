@@ -2,5 +2,8 @@ bug at showPlayerReservations method in Reservations View:
     it only shows the first reservation
     it doesn't show the next reservations you make
 
-adding, updating, deleting fields as field owner missing.
+updating, deleting fields as field owner missing.
 
+issues:
+    you can make a reservation on a date that is passed.
+    when you say show my reservations, the program terminates.

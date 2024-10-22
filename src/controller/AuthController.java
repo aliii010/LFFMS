@@ -1,6 +1,7 @@
 package controller;
 
 import model.Player;
+import view.PlayerView;
 
 public class AuthController {
     private static Player player;
@@ -17,6 +18,8 @@ public class AuthController {
         }
 
         player = new Player(username, phoneNumber, password, "Player", 1);
+        System.out.println("You have successfully registered! as " + username + " " + phoneNumber);
+        PlayerView.start();
     }
 
     public static void signInPlayer(String phoneNumber, String password) {

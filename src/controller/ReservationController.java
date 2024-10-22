@@ -39,8 +39,15 @@ public class ReservationController {
             field.reservedTimes().add(LocalDateTime.of(date, LocalTime.of(hour + 1, 0)));
         }
         Reservations.reservations.add(new Reservation(1, field, player, date, hour, duration));
-        System.out
-                .println("Reservation made successfully for " + hour + "PM " + "to " + (hour + 1) + "PM. in " + date);
+        if (duration == 2) {
+            System.out
+                    .println("Reservation made successfully for " + hour + "PM " + "to " + (hour + 2) + "PM. in "
+                            + date);
+        } else {
+            System.out
+                    .println("Reservation made successfully for " + hour + "PM " + "to " + (hour + 1) + "PM. in "
+                            + date);
+        }
     }
 
     public static ArrayList<Reservation> getReservationsByPlayer(Player player) {

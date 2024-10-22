@@ -17,7 +17,6 @@ public class SignInView {
         password = input.nextLine();
 
         AuthController.signInPlayer(phoneNumber, password);
-        System.out.println("You have successfully signed in! as " + "blnd" + " " + phoneNumber);
 
         String role = getRole(phoneNumber, password);
         if (role.equalsIgnoreCase("Player")) {

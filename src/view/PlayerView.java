@@ -10,6 +10,7 @@ public class PlayerView {
     static void showPlayerReservations() {
         if (ReservationController.getReservationsByPlayer(AuthController.getPlayer()).isEmpty()) {
             System.out.println("You have no reservations");
+            PlayerView.start();
         } else {
             for (Reservation reservation : ReservationController.getReservationsByPlayer(AuthController.getPlayer())) {
                 System.out.println(reservation);
